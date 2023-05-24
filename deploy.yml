@@ -11,7 +11,7 @@
 
     - name: Set Executable Permission for Shell Script
       file:
-        path: /home/ubuntu/kubernetes-poc/deploy.sh
+        path: /home/ubuntu/kubernetes/deploy.sh
         mode: '0777'
         owner: ubuntu
         group: ubuntu
@@ -26,4 +26,4 @@
         recurse: yes
 
     - name: Execute Shell Script
-      shell: /home/ubuntu/kubernetes-poc/deploy.sh
+      shell: /home/ubuntu/kubernetes/deploy.sh
