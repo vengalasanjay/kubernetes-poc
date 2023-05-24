@@ -10,10 +10,10 @@
         force: yes
         
     - name: Apply Pod Manifest
-      command: kubectl apply -f pod.yml
+      shell: kubectl apply -f pod.yml
       
     - name: Apply Deployment Manifest
-      command: kubectl apply -f Deployment.yml
+      shell: kubectl apply -f Deployment.yml
       
     - name: Apply NodePort Service Manifest
-      command: kubectl apply -f nodeport.yml
+      shell: kubectl apply -f nodeport.yml
