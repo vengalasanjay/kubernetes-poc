@@ -9,11 +9,5 @@
         dest: /home/ubuntu/kubernetes
         force: yes
         
-    - name: Apply Pod Manifest
-      shell: kubectl apply -f pod.yml
-      
-    - name: Apply Deployment Manifest
-      shell: kubectl apply -f Deployment.yml
-      
-    - name: Apply NodePort Service Manifest
-      shell: kubectl apply -f nodeport.yml
+    - name: Pod Creation
+      shell: /home/ubuntu/kubernetes/deploy.sh
