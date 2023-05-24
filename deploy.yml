@@ -20,7 +20,7 @@
       become: true
       become_user: ubuntu
       file:
-        path: /home/ubuntu/kubernetes-poc
+        path: /home/ubuntu/kubernetes
         owner: ubuntu
         group: ubuntu
         recurse: yes
