@@ -1,0 +1,6 @@
+- name: Run Kubernetes manifestfile
+  hosts: kubernetes-master
+  become: true
+  tasks:
+    - name: Execute Shell Script
+      shell: .deploy.sh
