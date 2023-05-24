@@ -10,16 +10,10 @@
         force: yes
         
     - name: Apply Pod Manifest
-      shell: kubectl apply -f /home/ubuntu/kubernetes/pod.yml
-      args:  
-        chdir: /home/ubuntu/kubernetes
-
+      command: kubectl apply -f /home/ubuntu/kubernetes/pod.yml
+      
     - name: Apply Deployment Manifest
-      shell: kubectl apply -f /home/ubuntu/kubernetes/Deployment.yml
-      args:
-        chdir: /home/ubuntu/kubernetes
-
+      command: kubectl apply -f /home/ubuntu/kubernetes/Deployment.yml
+      
     - name: Apply NodePort Service Manifest
-      shell: kubectl apply -f /home/ubuntu/kubernetes/nodeport.yml
-      args:
-        chdir: /home/ubuntu/kubernetes
+      command: kubectl apply -f /home/ubuntu/kubernetes/nodeport.yml
