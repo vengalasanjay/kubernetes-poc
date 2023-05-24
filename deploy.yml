@@ -8,24 +8,18 @@
         repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
         dest: /home/ubuntu/kubernetes
         force: yes
+        
+    - name: Apply Pod Manifest
+      shell: kubectl apply -f /home/ubuntu/kubernetes/pod.yml
+      args:  
+        chdir: /home/ubuntu/kubernetes
 
-    - name: Set Executable Permission for Shell Script
-      file:
-        path: /home/ubuntu/kubernetes/deploy.sh
-        mode: '0777'
-        owner: ubuntu
-        group: ubuntu
+    - name: Apply Deployment Manifest
+      shell: kubectl apply -f /home/ubuntu/kubernetes/Deployment.yml
+      args:
+        chdir: /home/ubuntu/kubernetes
 
-    - name: Change Ownership of Directory
-      become: true
-      become_user: root
-      file:
-        path: /home/ubuntu/kubernetes
-        owner: ubuntu
-        group: ubuntu
-        recurse: yes
-
-    - name: Execute Shell Script
-      shell: /home/ubuntu/kubernetes/deploy.sh
+    - name: Apply NodePort Service Manifest
+      shell: kubectl apply -f /home/ubuntu/kubernetes/nodeport.yml
       args:
         chdir: /home/ubuntu/kubernetes
