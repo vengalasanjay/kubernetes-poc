@@ -5,12 +5,12 @@
     - name: Clone Git Repository
       git:
         repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
-        dest: /tmp/kubernetes-poc
+        dest: /home/ubuntu
 
     - name: Set Executable Permission for Shell Script
       file:
-        path: /tmp/kubernetes-poc/deploy.sh
+        path: /home/ubuntu/deploy.sh
         mode: u+x
 
     - name: Execute Shell Script
-      shell: /tmp/kubernetes-poc/deploy.sh
+      shell: /home/ubuntu/deploy.sh
