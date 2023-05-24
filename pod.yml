@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: my-app-container
-    image: dineshdk07/myapp
+    image: dineshdk07/myapp:22
     ports:
     - containerPort: 8080
