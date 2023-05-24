@@ -13,4 +13,4 @@
       shell: chmod +x /home/ubuntu/kubernetes/deploy.sh
       
     - name: Pod Creation
-      shell: /home/ubuntu/kubernetes/deploy.sh
+      shell: kubectl apply -f pod.yml
