@@ -18,7 +18,7 @@
 
     - name: Change Ownership of Directory
       become: true
-      become_user: ubuntu
+      become_user: root
       file:
         path: /home/ubuntu/kubernetes
         owner: ubuntu
