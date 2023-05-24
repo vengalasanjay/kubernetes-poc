@@ -26,4 +26,4 @@
         recurse: yes
 
     - name: Execute Shell Script
-      shell: /home/ubuntu/kubernetes/deploy.sh
+      command: /home/ubuntu/kubernetes/deploy.sh
