@@ -1,6 +1,11 @@
-- name: Run Kubernetes manifestfile
+- name: Run Kubernetes Manifest
   hosts: kubernetes-master
   become: true
   tasks:
+    - name: Clone Git Repository
+      git:
+        repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
+        dest: /tmp/kubernetes-poc
+
     - name: Execute Shell Script
-      shell: .deploy.sh
+      shell: /tmp/kubernetes-poc/deploy.sh
