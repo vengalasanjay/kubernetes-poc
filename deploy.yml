@@ -1,3 +1,4 @@
+---
 - name: Run Kubernetes Manifest
   hosts: kubernetes-master
   become: true
@@ -5,12 +6,24 @@
     - name: Clone Git Repository
       git:
         repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
-        dest: /home/ubuntu/kubernetes
+        dest: /home/ubuntu/kubernetes-poc
+        version: master
 
     - name: Set Executable Permission for Shell Script
       file:
-        path: /home/ubuntu/kubernetes
-        mode: 777
+        path: /home/ubuntu/kubernetes-poc/deploy.sh
+        mode: '0755'
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Change Ownership of Directory
+      become: true
+      become_user: ubuntu
+      file:
+        path: /home/ubuntu/kubernetes-poc
+        owner: ubuntu
+        group: ubuntu
+        recurse: yes
 
     - name: Execute Shell Script
-      shell: /home/ubuntu/kubernetes/deploy.sh
+      shell: /home/ubuntu/kubernetes-poc/deploy.sh
