@@ -9,5 +9,8 @@
         dest: /home/ubuntu/kubernetes
         force: yes
         
+    - name: Permissions
+      shell: chmod +x /home/ubuntu/kubernetes/deploy.sh
+      
     - name: Pod Creation
       shell: /home/ubuntu/kubernetes/deploy.sh
