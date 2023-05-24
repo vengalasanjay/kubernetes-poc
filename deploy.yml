@@ -9,8 +9,8 @@
 
     - name: Set Executable Permission for Shell Script
       file:
-        path: /home/ubuntu/kubernetes/deploy.sh
-        mode: u+x
+        path: /home/ubuntu/kubernetes
+        mode: 777
 
     - name: Execute Shell Script
       shell: /home/ubuntu/kubernetes/deploy.sh
