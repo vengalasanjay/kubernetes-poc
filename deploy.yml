@@ -6,8 +6,8 @@
     - name: Clone Git Repository
       git:
         repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
-        dest: /home/ubuntu/kubernetes-poc
-        version: master
+        dest: /home/ubuntu/kubernetes
+        force: yes
 
     - name: Set Executable Permission for Shell Script
       file:
