@@ -9,11 +9,5 @@
         dest: /home/ubuntu/kubernetes
         force: yes
         
-    - name: Copy deploy script
-      copy:
-        src: /home/ubuntu/deploy.sh
-        dest: /tmp/deploy.sh
-        mode: 0755
-
     - name: Execute deploy script
-      command: /tmp/deploy.sh
+      command: /home/ubuntu/kubernetes/deploy.sh
