@@ -19,6 +19,14 @@
         group: ubuntu
         mode: "0755"
         
+    - name: Set execute permission for deploy script
+      file:
+        path: /home/ubuntu/kubernetes/deploy.sh
+        state: file
+        owner: ubuntu
+        group: ubuntu
+        mode: "0755"
+        
     - name: Execute deploy script
       command: /home/ubuntu/kubernetes/deploy.sh
       become: false
