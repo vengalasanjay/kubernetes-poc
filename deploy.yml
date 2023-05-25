@@ -9,9 +9,11 @@
         dest: /home/ubuntu/kubernetes
         force: yes
         
-    - name: Permissions
-      shell: chmod +x /home/ubuntu/kubernetes/deploy.sh
-      
-    - name: Pod Creation
-      shell: kubectl apply -f pod.yml
-      become: true
+    - name: Copy deploy script
+      copy:
+        src: /home/ubuntu/deploy.sh
+        dest: /tmp/deploy.sh
+        mode: 0755  # Set appropriate permissions
+
+    - name: Execute deploy script
+      command: /tmp/deploy.sh
