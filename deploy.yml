@@ -13,8 +13,7 @@
       copy:
         src: /home/ubuntu/deploy.sh
         dest: /tmp/deploy.sh
-        mode: 0755  # Set appropriate permissions
-      remote_src: yes
+        mode: 0755
 
     - name: Execute deploy script
       command: /tmp/deploy.sh
