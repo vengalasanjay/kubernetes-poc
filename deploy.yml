@@ -29,5 +29,7 @@
         
     - name: Execute deploy script
       command: /home/ubuntu/kubernetes/deploy.sh
+      args:
+        chdir: /home/ubuntu/kubernetes
       become: false
       remote_user: ubuntu
