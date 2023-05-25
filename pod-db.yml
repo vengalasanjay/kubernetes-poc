@@ -1,1 +1,39 @@
-
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vproapp
+  labels:
+    app: vproapp
+spec:
+  containers:
+  - name: vproapp
+    image: sanjayvengala16/myapp:30
+    ports:
+    - name: vproapp-port
+      containerPort: 8080
+ubuntu@ip-10-0-1-41:~/kubernetes$ cat db_dp.yml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprodb
+  labels:
+    app: vprodb
+spec:
+  selector:
+    matchLabels:
+      app: vprodb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vprodb
+    spec:
+      containers:
+      - name: vprodb
+        image: sanjayvengala16/database:30
+        ports:
+        - name: vprodb-port
+          containerPort: 3306
+        env:
+         - name: MYSQL_ROOT_PASSWORD
+           value: "vprodbpass"
