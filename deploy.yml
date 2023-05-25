@@ -8,6 +8,18 @@
         repo: https://github.com/Dineshkumar07dk/kubernetes-poc.git
         dest: /home/ubuntu/kubernetes
         force: yes
+      become: false
+      remote_user: ubuntu
+      
+    - name: Set permissions for the cloned directory
+      file:
+        path: /home/ubuntu/kubernetes
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: "0755"
         
     - name: Execute deploy script
       command: /home/ubuntu/kubernetes/deploy.sh
+      become: false
+      remote_user: ubuntu
