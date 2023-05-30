@@ -1,13 +1,20 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: vproapp
-  labels:
-    app: vproapp
+  name: vproapp-deployment
 spec:
-  containers:
-  - name: vproapp
-    image: sanjayvengala16/myapp:30
-    ports:
-    - name: vproapp-port
-      containerPort: 8080
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vproapp
+  template:
+    metadata:
+      labels:
+        app: vproapp
+    spec:
+      containers:
+      - name: vproapp
+        image: sanjayvengala16/myapp:30
+        ports:
+        - name: vproapp-port
+          containerPort: 8080
